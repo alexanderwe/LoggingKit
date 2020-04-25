@@ -1,6 +1,6 @@
 # LoggingKit document generator jazzy settings
 
-copyright: Copyright 2020 LoggingKit
+copyright: Copyright 2020 Alexander Weiß
 author: Alexander Weiß
 xcodebuild_arguments: [-target, LoggingKit-iOS]
 clean: true

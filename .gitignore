@@ -102,3 +102,7 @@ fastlane/screenshots/screenshots.html
 fastlane/test_output
 
 # End of https://www.gitignore.io/api/macos,xcode,carthage,cocoapods,fastlane
+
+.bundle/**
+.vendor/**
+.swiftpm/**
