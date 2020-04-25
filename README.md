@@ -1,16 +1,8 @@
-<p align="center">
-   <img width="200" src="https://raw.githubusercontent.com/SvenTiigi/SwiftKit/gh-pages/readMeAssets/SwiftKitLogo.png" alt="LoggingKit Logo">
-</p>
+# LoggingKit
 
 <p align="center">
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
-   </a>
-   <a href="http://cocoapods.org/pods/LoggingKit">
-      <img src="https://img.shields.io/cocoapods/v/LoggingKit.svg?style=flat" alt="Version">
-   </a>
-   <a href="http://cocoapods.org/pods/LoggingKit">
-      <img src="https://img.shields.io/cocoapods/p/LoggingKit.svg?style=flat" alt="Platform">
    </a>
    <a href="https://github.com/Carthage/Carthage">
       <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
@@ -18,32 +10,30 @@
    <a href="https://github.com/apple/swift-package-manager">
       <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
    </a>
+
+   <a href="https://github.com/alexanderwe/LoggingKit">
+      <img src="https://github.com/alexanderwe/LoggingKit/workflows/CI/badge.svg" alt="CI">
+   </a>   
 </p>
 
-# LoggingKit
+
 
 <p align="center">
-ℹ️ Short description of LoggingKit
+LoggingKit is a micro framework for logging in which uses `os_log` under the hood. 
 </p>
 
 ## Features
 
-- [x] ℹ️ Add LoggingKit features
+- [x] Uses `os_log` under the hood
+- [x] `Combine` ready
 
 ## Example
 
-The example application is the best way to see `LoggingKit` in action. Simply open the `LoggingKit.xcodeproj` and run the `Example` scheme.
+The example application is the best way to see `LoggingKit` in action. Simply open the `LoggingKit.xcodeproj` and run the `Example` scheme. 
+
+After the application has started you should see several log messages in your Xcode terminal and the `Console.app` for the device you ran the app on.
 
 ## Installation
-
-### CocoaPods
-
-LoggingKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```bash
-pod 'LoggingKit'
-```
 
 ### Carthage
 
@@ -52,7 +42,7 @@ pod 'LoggingKit'
 To integrate LoggingKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "AlexanderWeiß/LoggingKit"
+github "alexanderwe/LoggingKit"
 ```
 
 Run `carthage update` to build the framework and drag the built `LoggingKit.framework` into your Xcode project. 
@@ -65,7 +55,7 @@ To integrate using Apple's [Swift Package Manager](https://swift.org/package-man
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/AlexanderWeiß/LoggingKit.git", from: "1.0.0")
+    .package(url: "https://github.com/alexanderwe/LoggingKit.git", from: "1.0.0")
 ]
 ```
 
@@ -77,7 +67,59 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 
-ℹ️ Describe the usage of your Kit
+
+At first it makes sense to create an extensions on `LogCategories` to define your own categories. 
+
+```swift
+import LoggingKit
+
+extension LogCategories {
+    public var viewControllers: LogCategory { return .init("viewControllers") }
+    public var networking: LogCategory { return .init("networking") }
+    ...
+}
+```
+
+After that Simply import `LoggingKit` in the files you want to use the logging methods and use them accordingly 
+
+```swift
+import LoggingKit 
+
+logger.debug("Hello Debug", logCategory: \.viewControllers)
+logger.info("Hello Info", logCategory: \.viewControllers)
+logger.fault("Hello Fault", logCategory: \.viewControllers)
+logger.error("Hello Error", logCategory: \.viewControllers)
+
+```
+
+### Combine 
+
+If you are using combine `LoggingKit` offers some extensions on the `Publisher` type to log `Self.Output` and `Self.Failure`. 
+
+```swift
+import LoggingKit 
+
+// logs `Self.Output`
+myPublisher.logValue(logType: .info, logCategory: \.combine) {
+    "My Value is \($0)"
+}
+
+// logs `Self.Failure`
+myPublisher.logError(logCategory: \.combine) {
+    "My Error is \($0)"
+}
+
+// logs `Self.Output` as well as `Self.Failure`
+myPublisher.log()
+```
+
+
+### Console App
+
+Now can open `Console.App` on your mac, select the device from which you want to view the log messages.
+
+
+![Console App Screenshot](./assets/console_screenshot.png)
 
 ## Contributing
 Contributions are very welcome 🙌
@@ -86,7 +128,7 @@ Contributions are very welcome 🙌
 
 ```
 LoggingKit
-Copyright (c) 2020 LoggingKit alexander.weiss@twt-dh.de
+Copyright (c) 2020 Alexander Weiß
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
