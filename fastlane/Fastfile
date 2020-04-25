@@ -25,7 +25,7 @@ platform :ios do
     # Push Git commit
     push_to_git_remote()
     # Pod push / Pod trunk
-    pod_push()
+    # pod_push()
   end
 
   desc "Increment Version"
