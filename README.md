@@ -10,6 +10,10 @@
    <a href="https://github.com/apple/swift-package-manager">
       <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
    </a>
+
+   <a href="https://github.com/alexanderwe/LoggingKit">
+      <img src="https://github.com/alexanderwe/LoggingKit/workflows/CI/badge.svg" alt="CI">
+   </a>   
 </p>
 
 
