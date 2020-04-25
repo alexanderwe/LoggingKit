@@ -73,18 +73,23 @@ platform :ios do
     scan(
       project: "LoggingKit.xcodeproj",
       scheme: "LoggingKit-iOS",
-      clean: true
+      clean: true,
+      destination: "platform=iOS Simulator,name=iPhone 11,OS=13.4.1"
     )
     # Perform tvOS Tests
     scan(
       project: "LoggingKit.xcodeproj",
       scheme: "LoggingKit-tvOS",
-      clean: true
+      clean: true,
+      destination: "platform=tvOS Simulator,name=Apple TV,OS=13.4"
     )
     # Perform macOS Tests
-    spm(command: "test")
-    # Delete SPM build artifacts
-    spm(command: "clean")
+    scan(
+      project: "LoggingKit.xcodeproj",
+      scheme: "LoggingKit-macOS",
+      clean: true,
+      destination: "platform=OS X,arch=x86_64"
+    )
   end
 
   desc "Run Dependency-Manager compatibility tests"

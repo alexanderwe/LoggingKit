@@ -22,12 +22,13 @@ enum NumberError: Error {
 class LoggingKitTests: XCTestCase {
     
     static var allTests = [
-        ("testExample", testExample),
+        ("testTraditional", testTraditional),
+        ("testCombine", testCombine),
     ]
     
     private var sub: AnyCancellable? = nil
     
-    func testExample() {
+    func testTraditional() {
         
         // Traditional methods
         logger.debug("Hello Debug", logCategory: \.default)
@@ -35,18 +36,20 @@ class LoggingKitTests: XCTestCase {
         logger.fault("Hello Fault", logCategory: \.default)
         logger.error("Hello Error", logCategory: \.default)
         
+    }
+    
+    func testCombine() {
         // Combine publishers
         sub = Result<Int, NumberError>.Publisher(5)
             .logValue(logType: .info, logCategory: \.combine) {
                 "My Value is \($0)"
-            }
-            .tryMap { (number:Int)  in
-                throw NumberError.numberTooHigh
-            }
-            .logError(logCategory: \.combine) {
-                "My error is \($0)"
-            }
-            .sink(receiveCompletion: { _ in }, receiveValue: {_ in})
+        }
+        .tryMap { (number:Int)  in
+            throw NumberError.numberTooHigh
+        }
+        .logError(logCategory: \.combine) {
+            "My error is \($0)"
+        }
+        .sink(receiveCompletion: { _ in }, receiveValue: {_ in})
     }
-    
 }

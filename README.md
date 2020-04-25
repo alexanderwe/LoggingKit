@@ -96,7 +96,7 @@ If you are using combine `LoggingKit` offers some extensions on the `Publisher` 
 import LoggingKit 
 
 // logs `Self.Output`
-myPublisher.logValue(logType: .info) {
+myPublisher.logValue(logType: .info, logCategory: \.combine) {
     "My Value is \($0)"
 }
 
@@ -115,7 +115,7 @@ myPublisher.log()
 Now can open `Console.App` on your mac, select the device from which you want to view the log messages.
 
 
-![Console App Screenshot][./assets/console_screenshot.png]
+![Console App Screenshot](./assets/console_screenshot.png)
 
 ## Contributing
 Contributions are very welcome 🙌
@@ -124,7 +124,7 @@ Contributions are very welcome 🙌
 
 ```
 LoggingKit
-Copyright (c) 2020 LoggingKit
+Copyright (c) 2020 Alexander Weiß
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
