@@ -25,7 +25,7 @@ platform :ios do
     # Push Git commit
     push_to_git_remote()
     # Pod push / Pod trunk
-    pod_push()
+    # pod_push()
   end
 
   desc "Increment Version"
@@ -33,10 +33,10 @@ platform :ios do
     # Retrieve Version from options
     version = options[:version]
     # Set Podspec version
-    version_bump_podspec(
-      path: "LoggingKit.podspec", 
-      version_number: version
-    )
+    #version_bump_podspec(
+    #  path: "LoggingKit.podspec", 
+    #  version_number: version
+    #)
     # Set Framework plist version
     set_info_plist_value(
       path: "Configs/LoggingKit.plist", 
@@ -58,12 +58,11 @@ platform :ios do
     # Commit modified files
     git_commit(
         path: [
-          "LoggingKit.podspec", 
           "Configs/LoggingKit.plist", 
           "Configs/LoggingKitTests.plist", 
           "Example/Resources/Info.plist"
         ],
-        message: "LoggingKit Version #{version} 🚀"
+        message: "chore: LoggingKit Version #{version} 🚀"
     )
   end
 
