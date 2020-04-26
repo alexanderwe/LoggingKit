@@ -38,7 +38,7 @@ public struct LogCategory {
     //swiftlint:enable identifier_name
     
     var logger: OSLog {
-        return OSLog(subsystem: Bundle.main.bundleIdentifier ?? "dev.teabye.loggingkit", category: _key)
+        return OSLog(subsystem: Bundle.main.bundleIdentifier ?? "dev.teabyte.loggingkit", category: _key)
     }
     
     public init(_ key: String) {

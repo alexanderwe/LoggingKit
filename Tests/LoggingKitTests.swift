@@ -22,24 +22,49 @@ enum NumberError: Error {
 class LoggingKitTests: XCTestCase {
     
     static var allTests = [
-        ("testTraditional", testTraditional),
-        ("testCombine", testCombine),
+        ("testLogMessageBuilding", testLogMessageBuilding),
+        ("testTraditionalLogging", testTraditionalLogging),
+        ("testCombineLogging", testCombineLogging),
     ]
     
     private var sub: AnyCancellable? = nil
     
-    func testTraditional() {
+    func testLogMessageBuilding() {
+        XCTAssertEqual(
+            Logger.buildOutput("Debug message", logType: .default, functionName: "testMethod()", fileName: "TestFile.swift", lineNumber: 42),
+            "[DEFAULT] [main] [TestFile.swift:42] testMethod() > Debug message"
+        )
         
-        // Traditional methods
+        
+        XCTAssertEqual(
+            Logger.buildOutput("Debug message", logType: .debug, functionName: "testMethod()", fileName: "TestFile.swift", lineNumber: 42),
+            "[🔹(debug)] [main] [TestFile.swift:42] testMethod() > Debug message"
+        )
+        
+        XCTAssertEqual(
+            Logger.buildOutput("Debug message", logType: .info, functionName: "testMethod()", fileName: "TestFile.swift", lineNumber: 42),
+            "[ℹ️(info)] [main] [TestFile.swift:42] testMethod() > Debug message"
+        )
+        
+        XCTAssertEqual(
+            Logger.buildOutput("Debug message", logType: .error, functionName: "testMethod()", fileName: "TestFile.swift", lineNumber: 42),
+            "[‼️(error)] [main] [TestFile.swift:42] testMethod() > Debug message"
+        )
+        
+        XCTAssertEqual(
+            Logger.buildOutput("Debug message", logType: .fault, functionName: "testMethod()", fileName: "TestFile.swift", lineNumber: 42),
+            "[💣(fault)] [main] [TestFile.swift:42] testMethod() > Debug message"
+        )
+    }
+    
+    func testTraditionalLogging() {
         logger.debug("Hello Debug", logCategory: \.default)
         logger.info("Hello Info", logCategory: \.default)
         logger.fault("Hello Fault", logCategory: \.default)
         logger.error("Hello Error", logCategory: \.default)
-        
     }
     
-    func testCombine() {
-        // Combine publishers
+    func testCombineLogging() {
         sub = Result<Int, NumberError>.Publisher(5)
             .logValue(logType: .info, logCategory: \.combine) {
                 "My Value is \($0)"
