@@ -32,16 +32,16 @@ extension Publisher {
         
         return self
             .mapError {
-                logger.doLog(message($0),
-                             logType: .error,
-                             logCategory: logCategory,
-                             functionName: functionName,
-                             fileName: fileName,
-                             lineNumber: lineNumber
+                LogService.shared.error(
+                    message($0),
+                    logCategory: logCategory,
+                    fileName: fileName,
+                    functionName: functionName,
+                    lineNumber: lineNumber
                 )
                 return $0
-            }
-            .eraseToAnyPublisher()
+        }
+        .eraseToAnyPublisher()
     }
     
     /// Publisher which logs the ouput value of the preceding publisher
@@ -54,7 +54,7 @@ extension Publisher {
     ///   - lineNumber: Line number in which the message is logged
     ///   - message: Message to log
     /// - Returns: Returns an AnyPublisher with `AnyPublisher<Self.Output, Self.Failure>`
-    public func logValue(logType: OSLogType = .default,
+    public func logValue(logType: LogType = .verbose,
                          logCategory: KeyPath<LogCategories, LogCategory> = \.default,
                          functionName: StaticString = #function,
                          fileName: StaticString = #file,
@@ -64,16 +64,16 @@ extension Publisher {
         
         return self
             .map {
-                logger.doLog(message($0),
-                             logType: logType,
-                             logCategory: logCategory,
-                             functionName: functionName,
-                             fileName: fileName,
-                             lineNumber: lineNumber
+                LogService.shared.log(logType,
+                                      message($0),
+                                      logCategory: logCategory,
+                                      fileName: fileName,
+                                      functionName: functionName,
+                                      lineNumber: lineNumber
                 )
                 return $0
-            }
-            .eraseToAnyPublisher()
+        }
+        .eraseToAnyPublisher()
     }
     
     /// Publisher which both logs the Self.Failure value and the Self.Output value of the preceding publisher
@@ -89,7 +89,7 @@ extension Publisher {
     public func log(
         messageValue: @escaping (Self.Output) -> Any? = { (output: Self.Output) in return output },
         messageError: @escaping (Self.Failure) -> Any? = { (output: Self.Failure) in return output },
-        valuelogType: OSLogType = .default,
+        valuelogType: LogType = .verbose,
         logCategory: KeyPath<LogCategories, LogCategory> = \.default,
         functionName: StaticString = #function,
         fileName: StaticString = #file,
@@ -103,13 +103,13 @@ extension Publisher {
                           fileName: fileName,
                           lineNumber: lineNumber,
                           messageValue
-                )
+            )
                 .logError(logCategory: logCategory,
                           functionName: functionName,
                           fileName: fileName,
                           lineNumber: lineNumber,
                           messageError
-                )
+            )
                 .eraseToAnyPublisher()
     }
 }

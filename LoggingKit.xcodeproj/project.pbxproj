@@ -7,15 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D9C42A222745900000A6585 /* LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* LoggingKit.swift */; };
-		3D9C42B1227459C1000A6585 /* LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* LoggingKit.swift */; };
-		3D9C42BF227459F6000A6585 /* LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* LoggingKit.swift */; };
-		3D9C42CD22745A28000A6585 /* LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* LoggingKit.swift */; };
 		3D9C42F62274604A000A6585 /* LoggingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* LoggingKit.framework */; };
 		3D9C42FC22746078000A6585 /* LoggingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42D722745CDE000A6585 /* LoggingKitTests.swift */; };
 		3D9C43062274611B000A6585 /* LoggingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C42A92274599D000A6585 /* LoggingKit.framework */; };
 		3D9C430C22746131000A6585 /* LoggingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42D722745CDE000A6585 /* LoggingKitTests.swift */; };
-		3D9C431622746198000A6585 /* LoggingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C42C522745A07000A6585 /* LoggingKit.framework */; };
 		3D9C431C227461AF000A6585 /* LoggingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42D722745CDE000A6585 /* LoggingKitTests.swift */; };
 		3D9C43242274629B000A6585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C43232274629B000A6585 /* AppDelegate.swift */; };
 		3D9C43262274629B000A6585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C43252274629B000A6585 /* ViewController.swift */; };
@@ -23,15 +18,31 @@
 		3D9C432E2274629C000A6585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C432C2274629C000A6585 /* LaunchScreen.storyboard */; };
 		3D9C433422746323000A6585 /* LoggingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* LoggingKit.framework */; };
 		3D9C433522746323000A6585 /* LoggingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* LoggingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C2818B912454292D00F1C17D /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B902454292D00F1C17D /* LogCategory.swift */; };
-		C2818B9224542AD000F1C17D /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B902454292D00F1C17D /* LogCategory.swift */; };
-		C2818B9324542AD100F1C17D /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B902454292D00F1C17D /* LogCategory.swift */; };
-		C2818B9424542AD100F1C17D /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B902454292D00F1C17D /* LogCategory.swift */; };
+		C27A62F524950D5500115EDF /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EE24950D5400115EDF /* LogService.swift */; };
+		C27A62F624950D5500115EDF /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EF24950D5500115EDF /* LogCategory.swift */; };
+		C27A62F724950D5500115EDF /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F124950D5500115EDF /* Combine+LoggingKit.swift */; };
+		C27A62F824950D5500115EDF /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F224950D5500115EDF /* LogType.swift */; };
+		C27A62F924950D5500115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
+		C27A62FC24950ECF00115EDF /* OSLogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62FA24950ECB00115EDF /* OSLogProviderTests.swift */; };
+		C27A62FD24950ECF00115EDF /* OSLogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62FA24950ECB00115EDF /* OSLogProviderTests.swift */; };
+		C27A62FE24950ED000115EDF /* OSLogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62FA24950ECB00115EDF /* OSLogProviderTests.swift */; };
+		C27A6300249514ED00115EDF /* LoggingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C42C522745A07000A6585 /* LoggingKit.framework */; };
+		C27A63012495150E00115EDF /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EF24950D5500115EDF /* LogCategory.swift */; };
+		C27A63022495150F00115EDF /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EF24950D5500115EDF /* LogCategory.swift */; };
+		C27A63032495151000115EDF /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EF24950D5500115EDF /* LogCategory.swift */; };
+		C27A63042495151200115EDF /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F124950D5500115EDF /* Combine+LoggingKit.swift */; };
+		C27A63052495151200115EDF /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F124950D5500115EDF /* Combine+LoggingKit.swift */; };
+		C27A63062495151300115EDF /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F124950D5500115EDF /* Combine+LoggingKit.swift */; };
+		C27A63072495151600115EDF /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EE24950D5400115EDF /* LogService.swift */; };
+		C27A63082495151600115EDF /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EE24950D5400115EDF /* LogService.swift */; };
+		C27A63092495151600115EDF /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62EE24950D5400115EDF /* LogService.swift */; };
+		C27A630A2495151A00115EDF /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F224950D5500115EDF /* LogType.swift */; };
+		C27A630B2495151A00115EDF /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F224950D5500115EDF /* LogType.swift */; };
+		C27A630C2495151B00115EDF /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F224950D5500115EDF /* LogType.swift */; };
+		C27A630D2495151E00115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
+		C27A630E2495151E00115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
+		C27A630F2495151E00115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
 		C2818B9824542BA700F1C17D /* Logging+LogCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B9724542BA700F1C17D /* Logging+LogCategories.swift */; };
-		C2818B9B24542E6E00F1C17D /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B9924542C6300F1C17D /* Combine+LoggingKit.swift */; };
-		C2818B9C24542E6F00F1C17D /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B9924542C6300F1C17D /* Combine+LoggingKit.swift */; };
-		C2818B9D24542E6F00F1C17D /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B9924542C6300F1C17D /* Combine+LoggingKit.swift */; };
-		C2818B9E24542E7000F1C17D /* Combine+LoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B9924542C6300F1C17D /* Combine+LoggingKit.swift */; };
 		C2818BB224543BE100F1C17D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C2818BB124543BE100F1C17D /* .swiftlint.yml */; };
 		C2818BB424543BEE00F1C17D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = C2818BB324543BEE00F1C17D /* Gemfile */; };
 		C2818BB624543BFC00F1C17D /* main.yml in Resources */ = {isa = PBXBuildFile; fileRef = C2818BB524543BFC00F1C17D /* main.yml */; };
@@ -88,7 +99,6 @@
 		3D9C429022745894000A6585 /* LoggingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C429C227458E8000A6585 /* LoggingKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LoggingKit.plist; sourceTree = "<group>"; };
 		3D9C429D227458E8000A6585 /* LoggingKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LoggingKitTests.plist; sourceTree = "<group>"; };
-		3D9C42A122745900000A6585 /* LoggingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingKit.swift; sourceTree = "<group>"; };
 		3D9C42A92274599D000A6585 /* LoggingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C42B7227459D6000A6585 /* LoggingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C42C522745A07000A6585 /* LoggingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,9 +116,13 @@
 		3D9C432A2274629C000A6585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9C432D2274629C000A6585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9C432F2274629C000A6585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2818B902454292D00F1C17D /* LogCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCategory.swift; sourceTree = "<group>"; };
+		C27A62EE24950D5400115EDF /* LogService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogService.swift; sourceTree = "<group>"; };
+		C27A62EF24950D5500115EDF /* LogCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCategory.swift; sourceTree = "<group>"; };
+		C27A62F124950D5500115EDF /* Combine+LoggingKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine+LoggingKit.swift"; sourceTree = "<group>"; };
+		C27A62F224950D5500115EDF /* LogType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogType.swift; sourceTree = "<group>"; };
+		C27A62F424950D5500115EDF /* OSLogProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogProvider.swift; sourceTree = "<group>"; };
+		C27A62FA24950ECB00115EDF /* OSLogProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogProviderTests.swift; sourceTree = "<group>"; };
 		C2818B9724542BA700F1C17D /* Logging+LogCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logging+LogCategories.swift"; sourceTree = "<group>"; };
-		C2818B9924542C6300F1C17D /* Combine+LoggingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+LoggingKit.swift"; sourceTree = "<group>"; };
 		C2818BA524543AB600F1C17D /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Mintfile; path = "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Mintfile"; sourceTree = "<absolute>"; };
 		C2818BB124543BE100F1C17D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		C2818BB324543BEE00F1C17D /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = SOURCE_ROOT; };
@@ -167,7 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9C431622746198000A6585 /* LoggingKit.framework in Frameworks */,
+				C27A6300249514ED00115EDF /* LoggingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +207,7 @@
 				3D9C42D222745B48000A6585 /* LICENSE */,
 				3D9C42D522745B48000A6585 /* README.md */,
 				3D9C42DB22745DB0000A6585 /* .gitignore */,
+				C27A62FF249514ED00115EDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,9 +245,11 @@
 		3D9C42A0227458FA000A6585 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3D9C42A122745900000A6585 /* LoggingKit.swift */,
-				C2818B902454292D00F1C17D /* LogCategory.swift */,
-				C2818B9924542C6300F1C17D /* Combine+LoggingKit.swift */,
+				C27A62F024950D5500115EDF /* Combine */,
+				C27A62EF24950D5500115EDF /* LogCategory.swift */,
+				C27A62EE24950D5400115EDF /* LogService.swift */,
+				C27A62F224950D5500115EDF /* LogType.swift */,
+				C27A62F324950D5500115EDF /* Providers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -242,6 +259,7 @@
 			children = (
 				3D9C42EC22745FDA000A6585 /* LinuxMain.swift */,
 				3D9C42D722745CDE000A6585 /* LoggingKitTests.swift */,
+				C27A62FA24950ECB00115EDF /* OSLogProviderTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -265,6 +283,29 @@
 				3D9C432F2274629C000A6585 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C27A62F024950D5500115EDF /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				C27A62F124950D5500115EDF /* Combine+LoggingKit.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		C27A62F324950D5500115EDF /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				C27A62F424950D5500115EDF /* OSLogProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		C27A62FF249514ED00115EDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C2818BA724543ADE00F1C17D /* fastlane */ = {
@@ -518,7 +559,7 @@
 				TargetAttributes = {
 					3D9C428F22745894000A6585 = {
 						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1150;
 					};
 					3D9C42A82274599D000A6585 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -714,9 +755,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2818B912454292D00F1C17D /* LogCategory.swift in Sources */,
-				C2818B9B24542E6E00F1C17D /* Combine+LoggingKit.swift in Sources */,
-				3D9C42A222745900000A6585 /* LoggingKit.swift in Sources */,
+				C27A62F824950D5500115EDF /* LogType.swift in Sources */,
+				C27A62F624950D5500115EDF /* LogCategory.swift in Sources */,
+				C27A62F724950D5500115EDF /* Combine+LoggingKit.swift in Sources */,
+				C27A62F524950D5500115EDF /* LogService.swift in Sources */,
+				C27A62F924950D5500115EDF /* OSLogProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,9 +767,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2818B9224542AD000F1C17D /* LogCategory.swift in Sources */,
-				C2818B9C24542E6F00F1C17D /* Combine+LoggingKit.swift in Sources */,
-				3D9C42B1227459C1000A6585 /* LoggingKit.swift in Sources */,
+				C27A630A2495151A00115EDF /* LogType.swift in Sources */,
+				C27A63042495151200115EDF /* Combine+LoggingKit.swift in Sources */,
+				C27A63072495151600115EDF /* LogService.swift in Sources */,
+				C27A63012495150E00115EDF /* LogCategory.swift in Sources */,
+				C27A630D2495151E00115EDF /* OSLogProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,9 +779,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2818B9324542AD100F1C17D /* LogCategory.swift in Sources */,
-				C2818B9D24542E6F00F1C17D /* Combine+LoggingKit.swift in Sources */,
-				3D9C42BF227459F6000A6585 /* LoggingKit.swift in Sources */,
+				C27A630B2495151A00115EDF /* LogType.swift in Sources */,
+				C27A63052495151200115EDF /* Combine+LoggingKit.swift in Sources */,
+				C27A63082495151600115EDF /* LogService.swift in Sources */,
+				C27A63022495150F00115EDF /* LogCategory.swift in Sources */,
+				C27A630E2495151E00115EDF /* OSLogProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,9 +791,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2818B9424542AD100F1C17D /* LogCategory.swift in Sources */,
-				C2818B9E24542E7000F1C17D /* Combine+LoggingKit.swift in Sources */,
-				3D9C42CD22745A28000A6585 /* LoggingKit.swift in Sources */,
+				C27A630C2495151B00115EDF /* LogType.swift in Sources */,
+				C27A63062495151300115EDF /* Combine+LoggingKit.swift in Sources */,
+				C27A63092495151600115EDF /* LogService.swift in Sources */,
+				C27A63032495151000115EDF /* LogCategory.swift in Sources */,
+				C27A630F2495151E00115EDF /* OSLogProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +804,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9C42FC22746078000A6585 /* LoggingKitTests.swift in Sources */,
+				C27A62FC24950ECF00115EDF /* OSLogProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9C430C22746131000A6585 /* LoggingKitTests.swift in Sources */,
+				C27A62FD24950ECF00115EDF /* OSLogProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9C431C227461AF000A6585 /* LoggingKitTests.swift in Sources */,
+				C27A62FE24950ED000115EDF /* OSLogProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1191,6 +1243,7 @@
 		3D9C42FA2274604A000A6585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Configs/LoggingKitTests.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1212,6 +1265,7 @@
 		3D9C42FB2274604A000A6585 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Configs/LoggingKitTests.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1233,6 +1287,7 @@
 		3D9C430A2274611B000A6585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Configs/LoggingKitTests.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1255,6 +1310,7 @@
 		3D9C430B2274611B000A6585 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Configs/LoggingKitTests.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1277,6 +1333,7 @@
 		3D9C431A22746198000A6585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1300,6 +1357,7 @@
 		3D9C431B22746198000A6585 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

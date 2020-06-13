@@ -3,4 +3,5 @@ import XCTest
 
 XCTMain([
     testCase(LoggingKitTests.allTests),
+    testCase(OSLogProviderTests.allTests),
 ])
