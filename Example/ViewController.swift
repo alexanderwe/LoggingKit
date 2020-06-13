@@ -43,10 +43,12 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .white
         
         // Traditional methods
-        logger.debug("Hello Debug", logCategory: \.viewControllers)
-        logger.info("Hello Info", logCategory: \.viewControllers)
-        logger.fault("Hello Fault", logCategory: \.viewControllers)
-        logger.error("Hello Error", logCategory: \.viewControllers)
+        LogService.shared.debug("Hello Debug", logCategory: \.viewControllers)
+        LogService.shared.verbose("Hello Verbose", logCategory: \.viewControllers)
+        LogService.shared.info("Hello Info", logCategory: \.viewControllers)
+        LogService.shared.warning("Hello Warning", logCategory: \.viewControllers)
+        LogService.shared.error("Hello Error", logCategory: \.viewControllers)
+
         
         // Combine publishers
         sub = Result<Int, NumberError>.Publisher(5)

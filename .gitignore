@@ -29,7 +29,7 @@ Icon
 ._*
 
 # Documentation
-Documentation
+#Documentation
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
@@ -107,3 +107,4 @@ fastlane/test_output
 .bundle/**
 .vendor/**
 .swiftpm/**
+.vendor/**

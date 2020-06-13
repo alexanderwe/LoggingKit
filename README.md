@@ -16,20 +16,19 @@
    </a>   
 </p>
 
-
-
 <p align="center">
-LoggingKit is a micro framework for logging in which uses `os_log` under the hood. 
+LoggingKit is a micro framework for logging based on log providers 
 </p>
 
 ## Features
 
-- [x] Uses `os_log` under the hood
+- [x] Define your own log providers
 - [x] `Combine` ready
+- [x] Comes with pre-defined `OSLogProvider` which uses `os_log` under the hood
 
 ## Example
 
-The example application is the best way to see `LoggingKit` in action. Simply open the `LoggingKit.xcodeproj` and run the `Example` scheme. 
+The example application is the best way to see `LoggingKit` in action. Simply open the `LoggingKit.xcodeproj` and run the `Example` scheme.
 
 After the application has started you should see several log messages in your Xcode terminal and the `Console.app` for the device you ran the app on.
 
@@ -41,11 +40,11 @@ After the application has started you should see several log messages in your Xc
 
 To integrate LoggingKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
-```ogdl
+```
 github "alexanderwe/LoggingKit"
 ```
 
-Run `carthage update` to build the framework and drag the built `LoggingKit.framework` into your Xcode project. 
+Run `carthage update` to build the framework and drag the built `LoggingKit.framework` into your Xcode project.
 
 On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase” and add the Framework path as mentioned in [Carthage Getting started Step 4, 5 and 6](https://github.com/Carthage/Carthage/blob/master/README.md#if-youre-building-for-ios-tvos-or-watchos)
 
@@ -67,8 +66,7 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 
-
-At first it makes sense to create an extensions on `LogCategories` to define your own categories. 
+At first it makes sense to create an extensions on `LogCategories` to define your own categories.
 
 ```swift
 import LoggingKit
@@ -80,24 +78,46 @@ extension LogCategories {
 }
 ```
 
-After that Simply import `LoggingKit` in the files you want to use the logging methods and use them accordingly 
+Then register your log providers in the `application(application:didFinishLaunchingWithOptions:)`.
 
 ```swift
-import LoggingKit 
+import LoggingKit
 
-logger.debug("Hello Debug", logCategory: \.viewControllers)
-logger.info("Hello Info", logCategory: \.viewControllers)
-logger.fault("Hello Fault", logCategory: \.viewControllers)
-logger.error("Hello Error", logCategory: \.viewControllers)
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    ...
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        LogService.register(logProviders: LogProvider, LogProvider ...)
+
+    }
+
+    ...
+}
+```
+
+After that Simply import `LoggingKit` in the files you want to use the logging methods and use them accordingly
+
+```swift
+import LoggingKit
+
+LogService.shared.debug("Hello Debug", logCategory: \.viewControllers)
+LogService.shared.verbose("Hello Verbose", logCategory: \.viewControllers)
+LogService.shared.info("Hello Info", logCategory: \.viewControllers)
+LogService.shared.warning("Hello Warning", logCategory: \.viewControllers)
+LogService.shared.error("Hello Error", logCategory: \.viewControllers)
 
 ```
 
-### Combine 
+### Combine
 
-If you are using combine `LoggingKit` offers some extensions on the `Publisher` type to log `Self.Output` and `Self.Failure`. 
+If you are using combine, `LoggingKit` offers some extensions on the `Publisher` type to log `Self.Output` and `Self.Failure`.
+
+You can choose whichever category you want. The `\.combine` category is a custom defined one.
 
 ```swift
-import LoggingKit 
+import LoggingKit
 
 // logs `Self.Output`
 myPublisher.logValue(logType: .info, logCategory: \.combine) {
@@ -113,15 +133,24 @@ myPublisher.logError(logCategory: \.combine) {
 myPublisher.log()
 ```
 
+### Providers
 
-### Console App
+The idea behind this small framework is, that you can extend it by writing your own log providers by conforming to the `LogProvider` protocol. These implementations then can be registered in the `LogService.register(providers:)` method.
 
-Now can open `Console.App` on your mac, select the device from which you want to view the log messages.
+You can find an example `LogProvider` implementation in [./Example/MyTestLogProvider.swift](./Example/MyTestLogProvider.swift)
 
+#### OSLogProvider
+
+LoggingKit comes with one pre-defined `OSLogProvider` . It uses `os_log` under the hood to log your messages. These messages can then be viewed in the `Console.app` application of your mac and on the console in Xcode.
+
+##### Console App
+
+Open `Console.App` on your mac, select the device from which you want to view the log messages, to view the messages printed by the `OSLogProvider`
 
 ![Console App Screenshot](./assets/console_screenshot.png)
 
 ## Contributing
+
 Contributions are very welcome 🙌
 
 ## License

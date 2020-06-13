@@ -1,0 +1,117 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogCategory.swift",
+      "line": 16,
+      "symbol": "LoggingCategories",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogCategory.swift",
+      "line": 22,
+      "symbol": "LogCategories.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogCategory.swift",
+      "line": 29,
+      "symbol": "LogCategories.default",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogCategory.swift",
+      "line": 37,
+      "symbol": "LogCategory._key",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogCategory.swift",
+      "line": 44,
+      "symbol": "LogCategory.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogService.swift",
+      "line": 10,
+      "symbol": "LogProvider",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogService.swift",
+      "line": 45,
+      "symbol": "LogService.register(logProviders:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogService.swift",
+      "line": 49,
+      "symbol": "LogService.unregisterAll()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogType.swift",
+      "line": 18,
+      "symbol": "LogType.info",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogType.swift",
+      "line": 19,
+      "symbol": "LogType.debug",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogType.swift",
+      "line": 20,
+      "symbol": "LogType.verbose",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogType.swift",
+      "line": 21,
+      "symbol": "LogType.warning",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/LogType.swift",
+      "line": 22,
+      "symbol": "LogType.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/Providers/OSLogProvider.swift",
+      "line": 13,
+      "symbol": "OSLogType.init(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/Providers/OSLogProvider.swift",
+      "line": 36,
+      "symbol": "OSLogProvider.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Sources/Providers/OSLogProvider.swift",
+      "line": 125,
+      "symbol": "DispatchQueue.currentQueueLabel",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit"
+}

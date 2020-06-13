@@ -19,7 +19,7 @@ public var LoggingCategories = LogCategories()
 /// Container for holding different log categories
 public struct LogCategories {
     
-    subscript(keyPath: KeyPath<LogCategories, LogCategory>) -> LogCategory {
+    public subscript(keyPath: KeyPath<LogCategories, LogCategory>) -> LogCategory {
           return self[keyPath: keyPath]
     }
 }
