@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
-        LogService.register(provider: OSLogProvider())
+        LogService.register(logProviders: OSLogProvider())
         
         
         // Initialize UIWindow

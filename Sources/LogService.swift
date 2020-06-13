@@ -28,8 +28,8 @@ public final class LogService {
         LogService.providers = providers
     }
     
-    public static func register(provider: LogProvider) {
-        providers.append(provider)
+    public static func register(logProviders: LogProvider...) {
+        providers.append(contentsOf: logProviders)
     }
     
     public static func unregisterAll() {
