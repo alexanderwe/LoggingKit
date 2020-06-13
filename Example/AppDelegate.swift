@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
-        LogService.register(logProviders: OSLogProvider())
+        LogService.register(logProviders: MyTestLogProvider())
         
         
         // Initialize UIWindow
@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.rootViewController
         // Make Key and Visible
         self.window?.makeKeyAndVisible()
+    
         // Return positive launch
         return true
     }

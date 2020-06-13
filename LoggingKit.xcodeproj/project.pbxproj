@@ -42,6 +42,7 @@
 		C27A630D2495151E00115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
 		C27A630E2495151E00115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
 		C27A630F2495151E00115EDF /* OSLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A62F424950D5500115EDF /* OSLogProvider.swift */; };
+		C27A631124954DC600115EDF /* MyTestLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A631024954DC600115EDF /* MyTestLogProvider.swift */; };
 		C2818B9824542BA700F1C17D /* Logging+LogCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818B9724542BA700F1C17D /* Logging+LogCategories.swift */; };
 		C2818BB224543BE100F1C17D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C2818BB124543BE100F1C17D /* .swiftlint.yml */; };
 		C2818BB424543BEE00F1C17D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = C2818BB324543BEE00F1C17D /* Gemfile */; };
@@ -122,6 +123,7 @@
 		C27A62F224950D5500115EDF /* LogType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogType.swift; sourceTree = "<group>"; };
 		C27A62F424950D5500115EDF /* OSLogProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogProvider.swift; sourceTree = "<group>"; };
 		C27A62FA24950ECB00115EDF /* OSLogProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogProviderTests.swift; sourceTree = "<group>"; };
+		C27A631024954DC600115EDF /* MyTestLogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTestLogProvider.swift; sourceTree = "<group>"; };
 		C2818B9724542BA700F1C17D /* Logging+LogCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logging+LogCategories.swift"; sourceTree = "<group>"; };
 		C2818BA524543AB600F1C17D /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Mintfile; path = "/Users/alexanderweiss/Documents/Programming/swift-projects/LoggingKit/Mintfile"; sourceTree = "<absolute>"; };
 		C2818BB124543BE100F1C17D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
@@ -271,6 +273,7 @@
 				3D9C43252274629B000A6585 /* ViewController.swift */,
 				C2818B9724542BA700F1C17D /* Logging+LogCategories.swift */,
 				3D9C4333227462B9000A6585 /* Resources */,
+				C27A631024954DC600115EDF /* MyTestLogProvider.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9C43262274629B000A6585 /* ViewController.swift in Sources */,
+				C27A631124954DC600115EDF /* MyTestLogProvider.swift in Sources */,
 				3D9C43242274629B000A6585 /* AppDelegate.swift in Sources */,
 				C2818B9824542BA700F1C17D /* Logging+LogCategories.swift in Sources */,
 			);
