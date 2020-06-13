@@ -28,9 +28,9 @@ class MyTestLogProvider: LogProvider {
         
         let category = LoggingCategories[logCategory]
         let timeString = MyTestLogProvider.dateFormatter.string(from: Date())
-        let fileString = "[\((String(describing: fileName) as NSString).lastPathComponent):\(lineNumber)] \(functionName) > \(message)"
+        let fileString = "[\((String(describing: fileName) as NSString).lastPathComponent):\(lineNumber)] \(functionName)"
         
-        print("\(timeString) [\(event.rawValue)] - [\(category._key)] - \(fileString)")
+        print("\(timeString) [\(event.rawValue)] - [\(category._key)] - \(fileString) > \(message)")
         
     }
 }

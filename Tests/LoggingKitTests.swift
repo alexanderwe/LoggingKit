@@ -25,7 +25,7 @@ class LoggingKitTests: XCTestCase {
     ]
     
     func testProviderRegistration() {
-        LogService.register(provider: OSLogProvider())
+        LogService.register(logProviders: OSLogProvider())
         LogService.unregisterAll()
     }
 }
