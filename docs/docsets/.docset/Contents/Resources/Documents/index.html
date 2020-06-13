@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (55% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/LogService.html">LogService</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Global%20Variables.html#/s:10LoggingKit0A10CategoriesAA03LogC0Vvp">LoggingCategories</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/LogType.html">LogType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/DispatchQueue.html">DispatchQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/OSLogType.html">OSLogType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Publisher.html">Publisher</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/LogProvider.html">LogProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/LogCategories.html">LogCategories</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogCategory.html">LogCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/OSLogProvider.html">OSLogProvider</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='loggingkit' class='heading'>LoggingKit</h1>
+
+<p align="center">
+   <a href="https://developer.apple.com/swift/">
+      <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
+   </a>
+   <a href="https://github.com/Carthage/Carthage">
+      <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
+   </a>
+   <a href="https://github.com/apple/swift-package-manager">
+      <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
+   </a>
+
+   <a href="https://github.com/alexanderwe/LoggingKit">
+      <img src="https://github.com/alexanderwe/LoggingKit/workflows/CI/badge.svg" alt="CI">
+   </a>   
+</p>
+
+<p align="center">
+LoggingKit is a micro framework for logging based on log providers 
+</p>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>[x] Define your own log providers</li>
+<li>[x] <code>Combine</code> ready</li>
+<li>[x] Comes with pre-defined <code><a href="Structs/OSLogProvider.html">OSLogProvider</a></code> which uses <code>os_log</code> under the hood</li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>The example application is the best way to see <code>LoggingKit</code> in action. Simply open the <code>LoggingKit.xcodeproj</code> and run the <code>Example</code> scheme.</p>
+
+<p>After the application has started you should see several log messages in your Xcode terminal and the <code>Console.app</code> for the device you ran the app on.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
+
+<p>To integrate LoggingKit into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "alexanderwe/LoggingKit"
+</code></pre>
+
+<p>Run <code>carthage update</code> to build the framework and drag the built <code>LoggingKit.framework</code> into your Xcode project.</p>
+
+<p>On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase” and add the Framework path as mentioned in <a href="https://github.com/Carthage/Carthage/blob/master/README.md#if-youre-building-for-ios-tvos-or-watchos">Carthage Getting started Step 4, 5 and 6</a></p>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<p>To integrate using Apple&rsquo;s <a href="https://swift.org/package-manager/">Swift Package Manager</a>, add the following as a dependency to your <code>Package.swift</code>:</p>
+<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/alexanderwe/LoggingKit.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"1.0.0"</span><span class="p">)</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>Alternatively navigate to your Xcode project, select <code>Swift Packages</code> and click the <code>+</code> icon to search for <code>LoggingKit</code>.</p>
+<h3 id='manually' class='heading'>Manually</h3>
+
+<p>If you prefer not to use any of the aforementioned dependency managers, you can integrate LoggingKit into your project manually. Simply drag the <code>Sources</code> Folder into your Xcode project.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>At first it makes sense to create an extensions on <code><a href="Structs/LogCategories.html">LogCategories</a></code> to define your own categories.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">LoggingKit</span>
+
+<span class="kd">extension</span> <span class="kt">LogCategories</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">viewControllers</span><span class="p">:</span> <span class="kt">LogCategory</span> <span class="p">{</span> <span class="k">return</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="s">"viewControllers"</span><span class="p">)</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">networking</span><span class="p">:</span> <span class="kt">LogCategory</span> <span class="p">{</span> <span class="k">return</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="s">"networking"</span><span class="p">)</span> <span class="p">}</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then register your log providers in the <code>application(application:didFinishLaunchingWithOptions:)</code>.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">LoggingKit</span>
+
+<span class="kd">class</span> <span class="kt">AppDelegate</span><span class="p">:</span> <span class="kt">UIResponder</span><span class="p">,</span> <span class="kt">UIApplicationDelegate</span> <span class="p">{</span>
+
+    <span class="o">...</span>
+
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:[</span><span class="kt">UIApplication</span><span class="o">.</span><span class="kt">LaunchOptionsKey</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+
+        <span class="kt">LogService</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">logProviders</span><span class="p">:</span> <span class="kt">LogProvider</span><span class="p">,</span> <span class="kt">LogProvider</span> <span class="o">...</span><span class="p">)</span>
+
+    <span class="p">}</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>After that Simply import <code>LoggingKit</code> in the files you want to use the logging methods and use them accordingly</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">LoggingKit</span>
+
+<span class="kt">LogService</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">debug</span><span class="p">(</span><span class="s">"Hello Debug"</span><span class="p">,</span> <span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">viewControllers</span><span class="p">)</span>
+<span class="kt">LogService</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">verbose</span><span class="p">(</span><span class="s">"Hello Verbose"</span><span class="p">,</span> <span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">viewControllers</span><span class="p">)</span>
+<span class="kt">LogService</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"Hello Info"</span><span class="p">,</span> <span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">viewControllers</span><span class="p">)</span>
+<span class="kt">LogService</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">warning</span><span class="p">(</span><span class="s">"Hello Warning"</span><span class="p">,</span> <span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">viewControllers</span><span class="p">)</span>
+<span class="kt">LogService</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">error</span><span class="p">(</span><span class="s">"Hello Error"</span><span class="p">,</span> <span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">viewControllers</span><span class="p">)</span>
+
+</code></pre>
+<h3 id='combine' class='heading'>Combine</h3>
+
+<p>If you are using combine, <code>LoggingKit</code> offers some extensions on the <code>Publisher</code> type to log <code>Self.Output</code> and <code>Self.Failure</code>.</p>
+
+<p>You can choose whichever category you want. The <code>\.combine</code> category is a custom defined one.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">LoggingKit</span>
+
+<span class="c1">// logs `Self.Output`</span>
+<span class="n">myPublisher</span><span class="o">.</span><span class="nf">logValue</span><span class="p">(</span><span class="nv">logType</span><span class="p">:</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">combine</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">"My Value is </span><span class="se">\(</span><span class="nv">$0</span><span class="se">)</span><span class="s">"</span>
+<span class="p">}</span>
+
+<span class="c1">// logs `Self.Failure`</span>
+<span class="n">myPublisher</span><span class="o">.</span><span class="nf">logError</span><span class="p">(</span><span class="nv">logCategory</span><span class="p">:</span> <span class="err">\</span><span class="o">.</span><span class="n">combine</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">"My Error is </span><span class="se">\(</span><span class="nv">$0</span><span class="se">)</span><span class="s">"</span>
+<span class="p">}</span>
+
+<span class="c1">// logs `Self.Output` as well as `Self.Failure`</span>
+<span class="n">myPublisher</span><span class="o">.</span><span class="nf">log</span><span class="p">()</span>
+</code></pre>
+<h3 id='providers' class='heading'>Providers</h3>
+
+<p>The idea behind this small framework is, that you can extend it by writing your own log providers by conforming to the <code><a href="Protocols/LogProvider.html">LogProvider</a></code> protocol. These implementations then can be registered in the <code>LogService.register(providers:)</code> method.</p>
+
+<p>You can find an example <code><a href="Protocols/LogProvider.html">LogProvider</a></code> implementation in <a href="./Example/MyTestLogProvider.swift">./Example/MyTestLogProvider.swift</a></p>
+<h4 id='oslogprovider' class='heading'>OSLogProvider</h4>
+
+<p>LoggingKit comes with one pre-defined <code><a href="Structs/OSLogProvider.html">OSLogProvider</a></code> . It uses <code>os_log</code> under the hood to log your messages. These messages can then be viewed in the <code>Console.app</code> application of your mac and on the console in Xcode.</p>
+<h5 id='console-app' class='heading'>Console App</h5>
+
+<p>Open <code>Console.App</code> on your mac, select the device from which you want to view the log messages, to view the messages printed by the <code><a href="Structs/OSLogProvider.html">OSLogProvider</a></code></p>
+
+<p><img src="./assets/console_screenshot.png" alt="Console App Screenshot"></p>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>Contributions are very welcome 🙌</p>
+<h2 id='license' class='heading'>License</h2>
+<pre class="highlight plaintext"><code>LoggingKit
+Copyright (c) 2020 Alexander Weiß
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright 2020 Alexander Weiß</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

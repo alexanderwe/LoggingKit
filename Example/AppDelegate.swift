@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LoggingKit
 
 // MARK: - AppDelegate
 
@@ -30,12 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// - Returns: The launch result
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        LogService.register(logProviders: MyTestLogProvider())
+        
+        
         // Initialize UIWindow
         self.window = .init(frame: UIScreen.main.bounds)
         // Set RootViewController
         self.window?.rootViewController = self.rootViewController
         // Make Key and Visible
         self.window?.makeKeyAndVisible()
+    
         // Return positive launch
         return true
     }

@@ -9,7 +9,6 @@
 @testable import LoggingKit
 import XCTest
 
-
 extension LogCategories {
     public var combine: LogCategory { return .init("combine") }
 }
@@ -22,34 +21,11 @@ enum NumberError: Error {
 class LoggingKitTests: XCTestCase {
     
     static var allTests = [
-        ("testTraditional", testTraditional),
-        ("testCombine", testCombine),
+        ("testProviderRegistration", testProviderRegistration),
     ]
     
-    private var sub: AnyCancellable? = nil
-    
-    func testTraditional() {
-        
-        // Traditional methods
-        logger.debug("Hello Debug", logCategory: \.default)
-        logger.info("Hello Info", logCategory: \.default)
-        logger.fault("Hello Fault", logCategory: \.default)
-        logger.error("Hello Error", logCategory: \.default)
-        
-    }
-    
-    func testCombine() {
-        // Combine publishers
-        sub = Result<Int, NumberError>.Publisher(5)
-            .logValue(logType: .info, logCategory: \.combine) {
-                "My Value is \($0)"
-        }
-        .tryMap { (number:Int)  in
-            throw NumberError.numberTooHigh
-        }
-        .logError(logCategory: \.combine) {
-            "My error is \($0)"
-        }
-        .sink(receiveCompletion: { _ in }, receiveValue: {_ in})
+    func testProviderRegistration() {
+        LogService.register(logProviders: OSLogProvider())
+        LogService.unregisterAll()
     }
 }
