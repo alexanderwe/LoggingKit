@@ -73,14 +73,14 @@ platform :ios do
       project: "LoggingKit.xcodeproj",
       scheme: "LoggingKit-iOS",
       clean: true,
-      destination: "platform=iOS Simulator,name=iPhone 11,OS=13.5"
+      destination: "platform=iOS Simulator,name=iPhone 11,OS=14.2"
     )
     # Perform tvOS Tests
     scan(
       project: "LoggingKit.xcodeproj",
       scheme: "LoggingKit-tvOS",
       clean: true,
-      destination: "platform=tvOS Simulator,name=Apple TV,OS=13.4"
+      destination: "platform=tvOS Simulator,name=Apple TV,OS=14.2"
     )
     # Perform macOS Tests
     scan(
