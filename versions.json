@@ -2,5 +2,9 @@
   {
     "version": "latest",
     "url": "/LoggingKit/latest/documentation/overview/"
+  },
+  {
+    "version": "4.0.0",
+    "url": "/LoggingKit/4.0.0/documentation/overview/"
   }
 ]
