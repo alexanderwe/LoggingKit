@@ -7,7 +7,7 @@
 //
 
 import Testing
-@testable public import LoggingKit
+@testable import LoggingKit
 
 @Suite("LogService Tests")
 struct LoggingKitTests {

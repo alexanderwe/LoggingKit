@@ -131,7 +131,7 @@ struct OSLogProviderTests {
 
 // MARK: - Helpers
 extension LogCategories {
-    public var combine: LogCategory {
+    var combine: LogCategory {
         return LogCategory("combine")
     }
 }
