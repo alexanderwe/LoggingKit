@@ -24,11 +24,12 @@ struct OSLogProviderTests {
             logType: .verbose,
             functionName: "testMethod()",
             fileName: "TestFile.swift",
-            lineNumber: 42
+            lineNumber: 42,
+            threadName: "main"
         )
 
         #expect(message ==
-            "[📣(verbose)] [com.apple.root.user-initiated-qos.cooperative] [TestFile.swift:42] testMethod() > Debug message")
+            "[📣(verbose)] [main] [TestFile.swift:42] testMethod() > Debug message")
     }
 
     @Test
@@ -38,11 +39,12 @@ struct OSLogProviderTests {
             logType: .debug,
             functionName: "testMethod()",
             fileName: "TestFile.swift",
-            lineNumber: 42
+            lineNumber: 42,
+            threadName: "main"
         )
 
         #expect(message ==
-            "[📝(debug)] [com.apple.root.user-initiated-qos.cooperative] [TestFile.swift:42] testMethod() > Debug message")
+            "[📝(debug)] [main] [TestFile.swift:42] testMethod() > Debug message")
     }
 
     @Test
@@ -52,11 +54,12 @@ struct OSLogProviderTests {
             logType: .info,
             functionName: "testMethod()",
             fileName: "TestFile.swift",
-            lineNumber: 42
+            lineNumber: 42,
+            threadName: "main"
         )
 
         #expect(message ==
-            "[ℹ️(info)] [com.apple.root.user-initiated-qos.cooperative] [TestFile.swift:42] testMethod() > Debug message")
+            "[ℹ️(info)] [main] [TestFile.swift:42] testMethod() > Debug message")
     }
 
     @Test
@@ -66,11 +69,12 @@ struct OSLogProviderTests {
             logType: .warning,
             functionName: "testMethod()",
             fileName: "TestFile.swift",
-            lineNumber: 42
+            lineNumber: 42,
+            threadName: "main"
         )
 
         #expect(message ==
-            "[⚠️(warning)] [com.apple.root.user-initiated-qos.cooperative] [TestFile.swift:42] testMethod() > Debug message")
+            "[⚠️(warning)] [main] [TestFile.swift:42] testMethod() > Debug message")
     }
 
     @Test
@@ -80,11 +84,12 @@ struct OSLogProviderTests {
             logType: .error,
             functionName: "testMethod()",
             fileName: "TestFile.swift",
-            lineNumber: 42
+            lineNumber: 42,
+            threadName: "main"
         )
 
         #expect(message ==
-            "[‼️(error)] [com.apple.root.user-initiated-qos.cooperative] [TestFile.swift:42] testMethod() > Debug message")
+            "[‼️(error)] [main] [TestFile.swift:42] testMethod() > Debug message")
     }
 
     @Test

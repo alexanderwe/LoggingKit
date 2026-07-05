@@ -102,7 +102,8 @@ extension OSLogProvider {
         logType: LogType,
         functionName: StaticString,
         fileName: StaticString,
-        lineNumber: Int
+        lineNumber: Int,
+        threadName: String = OSLogProvider.threadName
     ) -> String? {
         guard let message = message() else {
             return nil
