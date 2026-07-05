@@ -5,7 +5,7 @@
 //  Created by Alexander Weiß on 13.06.20.
 //
 
-import Foundation
+public import Foundation
 import os.log
 
 // MARK: - OSLog Conversion
