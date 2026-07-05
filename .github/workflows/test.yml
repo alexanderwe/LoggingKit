@@ -45,6 +45,6 @@ jobs:
           set -euo pipefail
 
           xcodebuild test
-          -scheme swiftui-theming
+          -scheme LoggingKit
           -destination "${{ matrix.destination }}"
           | xcbeautify
