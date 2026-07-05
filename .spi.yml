@@ -1,0 +1,15 @@
+version: 1
+external_links:
+  documentation: "https://alexanderwe.github.io/LoggingKit/latest/documentation/overview"
+builder:
+  configs:
+    - platform: ios
+      scheme: LoggingKit
+    - platform: watchos
+      scheme: LoggingKit
+    - platform: visionOS
+      scheme: LoggingKit
+    - platform: tvOS
+      scheme: LoggingKit
+    - platform: macOS
+      scheme: LoggingKit
