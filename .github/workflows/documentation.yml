@@ -1,0 +1,70 @@
+# @format
+name: Documentation
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+
+concurrency:
+  group: docs-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-push-documentation:
+    runs-on: macos-26
+
+    steps:
+      - name: Select Xcode 26.5
+        run: sudo xcode-select -s /Applications/Xcode_26.5.app
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: mise setup
+        uses: jdx/mise-action@v4
+        with:
+          install: true
+        env:
+          MISE_HTTP_TIMEOUT: 300
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve documentation version
+        id: docs-version
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ "${REF_TYPE}" == "tag" ]]; then
+            VERSION="${REF_NAME#v}"
+            UPDATE_LATEST="false"
+          else
+            VERSION="latest"
+            UPDATE_LATEST="false"
+          fi
+
+          echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
+          echo "update_latest=${UPDATE_LATEST}" >> "${GITHUB_OUTPUT}"
+
+          echo "Resolved documentation version: ${VERSION}"
+          echo "Update latest: ${UPDATE_LATEST}"
+
+      - name: Build documentation
+        env:
+          DOCS_VERSION: ${{ steps.docs-version.outputs.version }}
+        run: mise run docs:build
+
+      - name: Fix permissions
+        run: sudo chown -R "$USER" .docs-out
+
+      - name: Deploy documentation
+        env:
+          UPDATE_LATEST: ${{ steps.docs-version.outputs.update_latest }}
+        run: mise run docs:deploy

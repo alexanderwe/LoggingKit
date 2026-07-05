@@ -1,21 +1,60 @@
-opt_in_rules: # some rules are only opt-in
+excluded:
+  - "Package.swift"
+  - ".swiftpm/"
+  - "Sources/Documentation.docc"
+  - ".deriveddata/"
+
+only_rules:
+  - custom_rules
+  - discouraged_optional_boolean
   - empty_count
-  - redundant_nil_coalescing
-  - switch_case_on_newline
+  - empty_string
+  - explicit_init
+  - force_cast
+  - force_try
   - force_unwrapping
-  - conditional_returns_on_newline
-  - closure_spacing
+  - identifier_name
   - implicitly_unwrapped_optional
-  - sorted_imports
-  - valid_docs
-  - nslocalizedstring_require_bundle
+  - operator_usage_whitespace
 
-included:
-  - Sources
+empty_count:
+  severity: error
+empty_string:
+  severity: error
+explicit_init:
+  include_bare_init: true
+  severity: error
+force_cast:
+  severity: warning # implicitly
+force_try:
+  severity: warning # explicitly
+force_unwrapping:
+  severity: error
+identifier_name:
+  excluded:
+    - at
+    - d
+    - id
+    - Id
+    - z
+    - x
+    - y
+    - on
+    - vc
+  allowed_symbols:
+    - _
+implicitly_unwrapped_optional:
+  severity: error
+operator_usage_whitespace:
+  severity: error
 
-excluded: # paths to ignore during linting. Takes precedence over `included`.
-  - Tests
-  - Example
+custom_rules:
+  disable_print:
+    included: ".*\\.swift"
+    name: "print usage"
+    regex: "((\\bprint)|(Swift\\.print))\\s*\\("
+    message: "Use Logger over print"
+    severity: warning
 
-disabled_rules: # rule identifiers to exclude from running
-  - trailing_whitespace
+# Allows for 0 lintable files, e.g. all files to lint match exclusion rules
+allow_zero_lintable_files: true

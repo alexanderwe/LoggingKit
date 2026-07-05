@@ -6,15 +6,11 @@
 
 <p align="center">
    <a href="https://developer.apple.com/swift/">
-      <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
+      <img src="https://img.shields.io/badge/Swift-6.0-orange.svg?style=flat" alt="Swift 6.0">
    </a>
    <a href="https://github.com/apple/swift-package-manager">
       <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
    </a>
-
-   <a href="https://github.com/alexanderwe/LoggingKit">
-      <img src="https://github.com/alexanderwe/LoggingKit/workflows/CI/badge.svg" alt="CI">
-   </a>   
 </p>
 
 <p align="center">
@@ -29,9 +25,9 @@ LoggingKit is a micro framework for logging based on log providers
 
 ## Example
 
-The example application is the best way to see `LoggingKit` in action. Simply open the `LoggingKit.xcodeproj` and run the `Example` scheme.
+The example application is the best way to see `LoggingKit` in action. Open `Example/LoggingDemo` in Xcode and run the app.
 
-After the application has started you should see several log messages in your Xcode terminal and the `Console.app` for the device you ran the app on.
+After the application has started you should see several log messages in your Xcode console and the `Console.app` for the device you ran the app on.
 
 ## Installation
 
@@ -41,98 +37,115 @@ To integrate using Apple's [Swift Package Manager](https://swift.org/package-man
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/alexanderwe/LoggingKit.git", from: "2.0.0")
+    .package(url: "https://github.com/alexanderwe/LoggingKit.git", from: "3.0.0")
 ]
 ```
 
-Alternatively navigate to your Xcode project, select `Swift Packages` and click the `+` icon to search for `LoggingKit`.
-
-### Manually
-
-If you prefer not to use any of the aforementioned dependency managers, you can integrate LoggingKit into your project manually. Simply drag the `Sources` Folder into your Xcode project.
+Alternatively navigate to your Xcode project, select `Package Dependencies` and click the `+` icon to search for `LoggingKit`.
 
 ## Usage
 
-At first it makes sense to create an extensions on `LogCategories` to define your own categories.
+### Define log categories
+
+Extend `LogCategories` to declare the categories for your app:
 
 ```swift
 import LoggingKit
 
 extension LogCategories {
-    public var viewControllers: LogCategory { return .init("viewControllers") }
-    public var networking: LogCategory { return .init("networking") }
-    ...
+    var viewControllers: LogCategory { .init("viewControllers") }
+    var networking: LogCategory { .init("networking") }
 }
 ```
 
-Then register your log providers in the `application(application:didFinishLaunchingWithOptions:)`.
+### Register log providers
+
+Register one or more log providers at app startup:
 
 ```swift
 import LoggingKit
 
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    ...
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        LogService.register(logProviders: LogProvider, LogProvider ...)
-
+@main
+struct MyApp: App {
+    init() {
+        LogService.register(logProviders: OSLogProvider())
     }
 
-    ...
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
 }
 ```
 
-After that Simply import `LoggingKit` in the files you want to use the logging methods and use them accordingly
+### Log messages
 
 ```swift
 import LoggingKit
 
-LogService.shared.debug("Hello Debug", logCategory: \.viewControllers)
-LogService.shared.verbose("Hello Verbose", logCategory: \.viewControllers)
-LogService.shared.info("Hello Info", logCategory: \.viewControllers)
-LogService.shared.warning("Hello Warning", logCategory: \.viewControllers)
-LogService.shared.error("Hello Error", logCategory: \.viewControllers)
-
+LogService.debug("Hello Debug", logCategory: \.viewControllers)
+LogService.verbose("Hello Verbose", logCategory: \.viewControllers)
+LogService.info("Hello Info", logCategory: \.viewControllers)
+LogService.warning("Hello Warning", logCategory: \.viewControllers)
+LogService.error("Hello Error", logCategory: \.viewControllers)
 ```
 
 ### Combine
 
-If you are using combine, `LoggingKit` offers some extensions on the `Publisher` type to log `Self.Output` and `Self.Failure`.
-
-You can choose whichever category you want. The `\.combine` category is a custom defined one.
+LoggingKit offers extensions on `Publisher` to log output and failure values inline:
 
 ```swift
 import LoggingKit
 
-// logs `Self.Output`
-myPublisher.logValue(logType: .info, logCategory: \.combine) {
+// logs Self.Output
+myPublisher.logValue(logType: .info, logCategory: \.networking) {
     "My Value is \($0)"
 }
 
-// logs `Self.Failure`
-myPublisher.logError(logCategory: \.combine) {
+// logs Self.Failure
+myPublisher.logError(logCategory: \.networking) {
     "My Error is \($0)"
 }
 
-// logs `Self.Output` as well as `Self.Failure`
+// logs both Self.Output and Self.Failure
 myPublisher.log()
 ```
 
-### Providers
+### Custom providers
 
-The idea behind this small framework is, that you can extend it by writing your own log providers by conforming to the `LogProvider` protocol. These implementations then can be registered in the `LogService.register(providers:)` method.
+Conform to `LogProvider` to route logs to any backend:
 
-You can find an example `LogProvider` implementation in [./Example/MyTestLogProvider.swift](./Example/MyTestLogProvider.swift)
+```swift
+import LoggingKit
 
-#### OSLogProvider
+struct MyCustomProvider: LogProvider {
+    func log(
+        _ event: LogType,
+        _ message: @autoclosure () -> Any?,
+        logCategory: KeyPath<LogCategories, LogCategory>,
+        fileName: StaticString,
+        functionName: StaticString,
+        lineNumber: Int
+    ) {
+        guard let value = message() else { return }
+        // Forward to your backend
+        print("[\(event)] \(value)")
+    }
+}
+```
 
-LoggingKit comes with one pre-defined `OSLogProvider` . It uses `os_log` under the hood to log your messages. These messages can then be viewed in the `Console.app` application of your mac and on the console in Xcode.
+Register it alongside the built-in provider:
 
-##### Console App
+```swift
+LogService.register(logProviders: OSLogProvider(), MyCustomProvider())
+```
 
-Open `Console.App` on your mac, select the device from which you want to view the log messages, to view the messages printed by the `OSLogProvider`
+### OSLogProvider
+
+LoggingKit ships with `OSLogProvider`, which uses `os_log` under the hood. Messages appear in the `Console.app` on your Mac and in the Xcode console.
+
+Open `Console.App`, select the target device, and filter by subsystem or category to view the messages printed by `OSLogProvider`.
 
 ![Console App Screenshot](./assets/console_screenshot.png)
 
